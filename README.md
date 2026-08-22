@@ -1,6 +1,6 @@
 # CS50 SQL Learning Portfolio
 
-Welcome to my CS50 SQL Learning Portfolio! This repository contains a structured, clean, and highly organized compilation of database experiments, scripts, and interactive notebooks demonstrating SQL concepts taught in CS50's Week 7 (SQL).
+Welcome to my CS50 SQL Learning Portfolio! This repository ([SajjadHossainSoykot/CS50-SQL](https://github.com/SajjadHossainSoykot/CS50-SQL)) contains a structured, clean, and highly organized compilation of database experiments, scripts, and interactive notebooks demonstrating SQL concepts taught in CS50's Week 7 (SQL).
 
 The portfolio shows how to transition from flat-file data processing (CSVs) to relational databases (SQLite) and structured query languages (SQL) using Python's native `sqlite3` library and the `pandas` library.
 
@@ -41,6 +41,7 @@ project_root/
 │   └── SQL_Cheat_Sheet.md          # Comprehensive reference guide of syntax rules & code blocks
 │
 ├── csv_to_sqlite.py                # Standalone script converting CSV data to SQLite DB
+├── LICENSE                         # GNU Affero General Public License v3.0
 └── README.md                       # This portfolio documentation
 ```
 
