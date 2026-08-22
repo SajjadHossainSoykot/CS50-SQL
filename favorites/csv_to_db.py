@@ -1,26 +1,29 @@
-import csv
-from cs50 import SQL
+import os
+import subprocess
 
-# Create/reset the empty database file so cs50.SQL can connect to it
-open("favorites.db", "w").close()
+# Reset/remove the existing database file to start clean
+if os.path.exists("favorites.db"):
+    os.remove("favorites.db")
 
-# Connect to database
-db = SQL("sqlite:///favorites.db")
+# Define SQLite CLI commands to import the CSV while keeping the autoincrement ID
+commands = """
+.mode csv
+.import favorites.csv temp_favorites
 
-# Create favorites table
-db.execute("CREATE TABLE favorites (id INTEGER PRIMARY KEY AUTOINCREMENT, Timestamp TEXT, language TEXT, problem TEXT)")
+CREATE TABLE favorites (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Timestamp TEXT,
+    language TEXT,
+    problem TEXT
+);
 
-# Open CSV file
-with open("favorites.csv", "r") as file:
-    # Create DictReader to parse headers as keys
-    reader = csv.DictReader(file)
+INSERT INTO favorites (Timestamp, language, problem)
+SELECT Timestamp, language, problem FROM temp_favorites;
 
-    # Iterate over CSV file, inserting each row into the database
-    for row in reader:
-        # Insert row into the SQL table
-        db.execute(
-            "INSERT INTO favorites (Timestamp, language, problem) VALUES (?, ?, ?)",
-            row["Timestamp"],
-            row["language"],
-            row["problem"]
-        )
+DROP TABLE temp_favorites;
+"""
+
+# Run the SQLite CLI commands
+subprocess.run(["sqlite3", "favorites.db"], input=commands, text=True)
+
+print("Database favorites.db successfully populated using SQLite CLI!")
