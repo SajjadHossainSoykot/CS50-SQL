@@ -1,0 +1,4 @@
+{
+  "code-runner.fileDirectoryAsCwd": true,
+  "python.terminal.executeInFileDir": true
+}
