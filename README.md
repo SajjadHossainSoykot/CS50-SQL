@@ -8,7 +8,7 @@ This repository contains python scripts, SQL databases, and data processing file
 
 The project is structured into two main directories:
 
-*   **[favorites/](favorites/)**: Demonstrates the step-by-step evolution of parsing, filtering, sorting, and querying a survey dataset in both Python and SQL.
+*   **[favorites/](favorites/)**: Demonstrates the step-by-step evolution of parsing, filtering, sorting, and querying a survey dataset in both Python and SQL. Also includes **[favorites.ipynb](favorites/favorites.ipynb)** which compiles all the python scripts into a single, executable notebook.
 *   **[imdb/](imdb/)**: Contains a large SQLite database `shows.db` representing a subset of IMDb’s data, used for practice queries.
 
 ---
