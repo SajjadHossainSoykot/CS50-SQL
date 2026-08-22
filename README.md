@@ -21,23 +21,24 @@ project_root/
 │
 ├── python_sql_practice/
 │   ├── archive/                    # Original CS50 lecture python files
-│   ├── database_connection.py      # Safe database connection & error handling template
-│   ├── create_tables.py            # Creating database schemas & constraints (NOT NULL, CHECK)
-│   ├── insert_examples.py          # Inserting records securely using parameterized queries
-│   ├── select_examples.py          # Standard queries (SELECT, SELECT specific columns)
-│   ├── filtering_examples.py       # Row filtering queries (WHERE, LIKE pattern matching)
-│   ├── aggregation_examples.py     # Aggregation functions (COUNT, DISTINCT, AVG, MIN, MAX)
-│   ├── grouping_examples.py        # Grouping and group-filtering aggregates (GROUP BY, HAVING)
-│   ├── ordering_examples.py        # Sorting and bounding queries (ORDER BY, LIMIT)
-│   ├── subquery_examples.py        # Nested queries (subqueries inside WHERE statements)
-│   └── join_examples.py            # Multi-table relation queries (INNER JOINs)
+│   ├── 01_connection.py            # Safe database connection & error handling template
+│   ├── 02_create.py                # Creating database schemas & constraints (NOT NULL, CHECK)
+│   ├── 03_insert.py                # Inserting records securely using parameterized queries
+│   ├── 04_select.py                # Standard queries (SELECT, SELECT specific columns)
+│   ├── 05_filtering.py             # Row filtering queries (WHERE, LIKE pattern matching)
+│   ├── 06_aggregation.py           # Aggregation functions (COUNT, DISTINCT, AVG, MIN, MAX)
+│   ├── 07_grouping.py              # Grouping and group-filtering aggregates (GROUP BY, HAVING)
+│   ├── 08_ordering.py              # Sorting and bounding queries (ORDER BY, LIMIT)
+│   ├── 09_subquery.py              # Nested queries (subqueries inside WHERE statements)
+│   ├── 10_join.py                  # Multi-table relation queries (INNER JOINs)
+│   └── 11_delete_drop.py           # Safety-first demonstration of DELETE & DROP TABLE queries
 │
 ├── notebooks/
 │   ├── 01_SQL_Basics.ipynb         # Interactive walkthrough of core SELECT & WHERE operations
 │   ├── 02_Favorites_Database.ipynb # Analytics & visual bar charts on programming languages
 │   ├── 03_Songs_Database.ipynb     # Documented placeholder explaining songs schema
 │   ├── 04_IMDb_Relationships.ipynb # Relational join queries & genre rating graphs on shows.db
-│   └── SQL_Cheat_Sheet.ipynb       # Interactive reference guide of syntax rules & code blocks
+│   └── SQL_Cheat_Sheet.md          # Comprehensive reference guide of syntax rules & code blocks
 │
 ├── csv_to_sqlite.py                # Standalone script converting CSV data to SQLite DB
 └── README.md                       # This portfolio documentation
@@ -109,6 +110,14 @@ project_root/
     WHERE s.title = 'Breaking Bad';
     ```
 
+### 8. DELETE and DROP TABLE (Safely Documented)
+*   Performing deletions and removing tables. Demonstrations copy the main database to a temporary file, perform the query, and clean up to prevent modifying original data.
+*   *Example Query:*
+    ```sql
+    DELETE FROM favorites WHERE language = 'Python';
+    DROP TABLE favorites;
+    ```
+
 ---
 
 ## 💾 Database Schemas
@@ -148,14 +157,14 @@ python3 csv_to_sqlite.py
 ```
 
 ### 2. Execute Python Scripts
-To run the educational SQL scripts inside the practice folder:
+To run the educational SQL scripts inside the practice folder in sequence:
 ```bash
-python3 python_sql_practice/database_connection.py
-python3 python_sql_practice/filtering_examples.py
-python3 python_sql_practice/join_examples.py
+python3 python_sql_practice/01_connection.py
+python3 python_sql_practice/05_filtering.py
+python3 python_sql_practice/11_delete_drop.py
 ```
 
-### 3. Open Interactive Notebooks
+### 3. Open Interactive Notebooks & Documentation
 Start Jupyter Lab/Notebook from the project directory:
 ```bash
 jupyter notebook
@@ -165,9 +174,12 @@ Navigate to `notebooks/` and run the cells in:
 *   `02_Favorites_Database.ipynb` to see language distribution charts.
 *   `04_IMDb_Relationships.ipynb` to analyze television genre metrics.
 
+You can also read the comprehensive syntax guide in `notebooks/SQL_Cheat_Sheet.md`.
+
 ---
 
 ## 🔒 Safety Statement
 To keep this repository educational and safe:
-*   No script or notebook contains destructive commands such as `DELETE`, `DROP TABLE`, or `DROP DATABASE`.
+*   Original database files are protected and never modified by destructive commands.
+*   Destructive demonstrations (`11_delete_drop.py`) copy the database before execution and perform operations purely on the temporary clone.
 *   All data inserts utilize SQL **parameterization** (`?` placeholders) to prevent SQL injection vulnerabilities.
