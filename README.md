@@ -36,7 +36,7 @@ project_root/
 ├── notebooks/
 │   ├── 01_SQL_Basics.ipynb         # Interactive walkthrough of core SELECT & WHERE operations
 │   ├── 02_Favorites_Database.ipynb # Analytics & visual bar charts on programming languages
-│   ├── 03_Songs_Database.ipynb     # Documented placeholder explaining songs schema
+│   ├── 03_Songs_Database.ipynb     # SQL queries & audio aura analysis on songs.db database
 │   ├── 04_IMDb_Relationships.ipynb # Relational join queries & genre rating graphs on shows.db
 │   └── SQL_Cheat_Sheet.md          # Comprehensive reference guide of syntax rules & code blocks
 │
