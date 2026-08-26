@@ -17,7 +17,8 @@ project_root/
 │
 ├── databases/
 │   ├── favorites.db                # SQLite database generated from favorites.csv
-│   └── shows.db                    # IMDb television shows relational database (63.8 MB)
+│   ├── shows.db                    # IMDb television shows relational database (63.8 MB)
+│   └── songs.db                    # Spotify top songs database with audio features (24 KB)
 │
 ├── python_sql_practice/
 │   ├── archive/                    # Original CS50 lecture python files
@@ -37,9 +38,9 @@ project_root/
 │   ├── 01_SQL_Basics.ipynb         # Interactive walkthrough of core SELECT & WHERE operations
 │   ├── 02_Favorites_Database.ipynb # Analytics & visual bar charts on programming languages
 │   ├── 03_Songs_Database.ipynb     # SQL queries & audio aura analysis on songs.db database
-│   ├── 04_IMDb_Relationships.ipynb # Relational join queries & genre rating graphs on shows.db
-│   └── SQL_Cheat_Sheet.md          # Comprehensive reference guide of syntax rules & code blocks
+│   └── 04_IMDb_Relationships.ipynb # Relational join queries & genre rating graphs on shows.db
 │
+├── SQL_Cheat_Sheet.md              # Comprehensive reference guide of syntax rules & code blocks
 ├── csv_to_sqlite.py                # Standalone script converting CSV data to SQLite DB
 ├── LICENSE                         # GNU Affero General Public License v3.0
 └── README.md                       # This portfolio documentation
@@ -141,6 +142,10 @@ CREATE TABLE favorites (
 *   **`stars`** (`show_id` FOREIGN KEY, `person_id` FOREIGN KEY)
 *   **`writers`** (`show_id` FOREIGN KEY, `person_id` FOREIGN KEY)
 
+### 3. Songs Database (`songs.db`)
+*   **`songs`** (`id` INTEGER, `name` TEXT, `artist_id` INTEGER, `danceability` REAL, `energy` REAL, `key` INTEGER, `loudness` REAL, `speechiness` REAL, `valence` REAL, `tempo` REAL, `duration_ms` INTEGER)
+*   **`artists`** (`id` INTEGER, `name` TEXT)
+
 ---
 
 ## ⚙️ How to Run & Explore
@@ -173,9 +178,10 @@ jupyter notebook
 Navigate to `notebooks/` and run the cells in:
 *   `01_SQL_Basics.ipynb` to learn query filters.
 *   `02_Favorites_Database.ipynb` to see language distribution charts.
+*   `03_Songs_Database.ipynb` to analyze song audio features and popularity queries.
 *   `04_IMDb_Relationships.ipynb` to analyze television genre metrics.
 
-You can also read the comprehensive syntax guide in `notebooks/SQL_Cheat_Sheet.md`.
+You can also read the comprehensive syntax guide in `SQL_Cheat_Sheet.md`.
 
 ---
 
