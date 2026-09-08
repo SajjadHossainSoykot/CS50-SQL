@@ -32,7 +32,8 @@ project_root/
 │   ├── 08_ordering.py              # Sorting and bounding queries (ORDER BY, LIMIT)
 │   ├── 09_subquery.py              # Nested queries (subqueries inside WHERE statements)
 │   ├── 10_join.py                  # Multi-table relation queries (INNER JOINs)
-│   └── 11_delete_drop.py           # Safety-first demonstration of DELETE & DROP TABLE queries
+│   ├── 11_delete_drop.py           # Safety-first demonstration of DELETE & DROP TABLE queries
+│   └── 12_songs_analysis.py        # Audio feature metrics, multi-table joins & subqueries on songs.db
 │
 ├── notebooks/
 │   ├── 01_SQL_Basics.ipynb         # Interactive walkthrough of core SELECT & WHERE operations
@@ -167,7 +168,9 @@ To run the educational SQL scripts inside the practice folder in sequence:
 ```bash
 python3 python_sql_practice/01_connection.py
 python3 python_sql_practice/05_filtering.py
+python3 python_sql_practice/10_join.py
 python3 python_sql_practice/11_delete_drop.py
+python3 python_sql_practice/12_songs_analysis.py
 ```
 
 ### 3. Open Interactive Notebooks & Documentation
@@ -190,3 +193,10 @@ To keep this repository educational and safe:
 *   Original database files are protected and never modified by destructive commands.
 *   Destructive demonstrations (`11_delete_drop.py`) copy the database before execution and perform operations purely on the temporary clone.
 *   All data inserts utilize SQL **parameterization** (`?` placeholders) to prevent SQL injection vulnerabilities.
+
+---
+
+## 👤 Author & Acknowledgments
+*   **Author:** [Sajjad Hossain Soykot](https://github.com/SajjadHossainSoykot)
+*   **Portfolio:** [sajjadsoykot.me](https://www.sajjadsoykot.me)
+*   **Course:** CS50's Introduction to Computer Science – Harvard University

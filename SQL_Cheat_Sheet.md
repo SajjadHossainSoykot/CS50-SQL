@@ -36,6 +36,7 @@ Aggregate functions perform calculations on multiple values and return a single 
 
 Subqueries allow you to nest a query inside another query's conditions.
 
+### Example A: Subqueries with `IN` and scalar lookup (`shows.db`)
 ```sql
 -- Find titles of all shows written by Vince Gilligan
 SELECT title FROM shows
@@ -45,6 +46,20 @@ WHERE id IN (
         SELECT id FROM people
         WHERE name = 'Vince Gilligan'
     )
+);
+```
+
+### Example B: Subqueries with Aggregate Filtering (`songs.db`)
+```sql
+-- Find all songs by top-tier artists having 4 or more tracks in the catalog
+SELECT s.name, a.name AS artist
+FROM songs s
+JOIN artists a ON s.artist_id = a.id
+WHERE s.artist_id IN (
+    SELECT artist_id
+    FROM songs
+    GROUP BY artist_id
+    HAVING COUNT(*) >= 4
 );
 ```
 
